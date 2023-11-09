@@ -18,8 +18,6 @@ var islandPerimeter = function(grid) {
                     size++
                 if(j-1 < 0 || grid[i][j-1] == 0)
                     size++
-                console.log(i,j)
-                console.log(size)
             }
         }
     }

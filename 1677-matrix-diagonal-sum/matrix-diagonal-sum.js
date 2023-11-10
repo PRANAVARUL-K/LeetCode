@@ -16,8 +16,6 @@ var diagonalSum = function(mat) {
             two--
             continue
         }
-        console.log(mat[one][one],mat[one][two])
-        console.log(one,two)
         sum = sum + mat[one][one] + mat[one][two]
         one++
         two--

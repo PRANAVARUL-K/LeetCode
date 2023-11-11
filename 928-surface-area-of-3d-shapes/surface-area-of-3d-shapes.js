@@ -18,12 +18,10 @@ var surfaceArea = function(grid) {
                 sum += grid[i][j]
             if(grid[i][j] == 0)
                 sum -= 2
-            if (i + 1 < grid.length) {                
+            if (i + 1 < grid.length)
                 sum += Math.abs(grid[i+1][j] - grid[i][j])
-            }
-            if (j + 1 < grid.length) {                
+            if (j + 1 < grid.length)              
                 sum += Math.abs(grid[i][j+1] - grid[i][j])                
-            }
         }
     }
     return sum 

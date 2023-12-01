@@ -21,7 +21,7 @@ public:
         }
         ListNode* last = temp;
         k = k % length; 
-        if (k == 0) 
+        if (k == 0 || length == 1) 
             return head;
         int val;
         for(int i = 0; i < k; i++)

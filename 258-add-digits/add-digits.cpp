@@ -1,7 +1,7 @@
 class Solution {
 public:
     int addDigits(int num) {
-        int sum = 0;
+        int sum;
         while(num > 9)
         {
             sum = 0;

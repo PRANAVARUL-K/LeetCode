@@ -7,7 +7,7 @@ public:
         int l = 0,r = n,ans = 0;
         while(l <= r)
         {
-            long long int mid = l+(r-l)/2;
+            int mid = l+(r-l)/2;
             if(isBadVersion(mid))
             {
                 ans = mid;

@@ -9,15 +9,15 @@ public:
             int mid = t + (d-t)/2;
             if(matrix[mid][0] <= target && matrix[mid][matrix[0].size()-1] >= target)
             {
-                int left = 0, right = matrix[0].size() - 1;
-                while (left <= right) {
-                    int midCol = left + (right - left) / 2;
+                t = 0, d = matrix[0].size() - 1;
+                while (t <= d) {
+                    int midCol = t + (d - t) / 2;
                     if (matrix[mid][midCol] == target)
                         return true;
                     else if (matrix[mid][midCol] < target)
-                        left = midCol + 1;
+                        t = midCol + 1;
                     else
-                        right = midCol - 1;
+                        d = midCol - 1;
                 }
                 return false;
             }

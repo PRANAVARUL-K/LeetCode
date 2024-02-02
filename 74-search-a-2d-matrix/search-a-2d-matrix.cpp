@@ -1,37 +1,31 @@
 class Solution {
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
-        if (matrix.empty() || matrix[0].empty()) return false;
-
-        int rows = matrix.size();
-        int cols = matrix[0].size();
-
-        int t = 0;
-        int d = rows - 1;
-
-        while (t <= d) {
-            int midRow = t + (d - t) / 2;
-
-            if (matrix[midRow][0] <= target && matrix[midRow][cols - 1] >= target) {
-                // Perform binary search within the row
-                int left = 0, right = cols - 1;
+        if (matrix.empty() || matrix[0].empty()) 
+            return false;
+        int d = matrix.size()-1,t = 0;
+        while(t<=d)
+        {
+            int mid = t + (d-t)/2;
+            if(matrix[mid][0] <= target && matrix[mid][matrix[0].size()-1] >= target)
+            {
+                int left = 0, right = matrix[0].size() - 1;
                 while (left <= right) {
                     int midCol = left + (right - left) / 2;
-                    if (matrix[midRow][midCol] == target)
+                    if (matrix[mid][midCol] == target)
                         return true;
-                    else if (matrix[midRow][midCol] < target)
+                    else if (matrix[mid][midCol] < target)
                         left = midCol + 1;
                     else
                         right = midCol - 1;
                 }
-                return false; // If not found in the row
+                return false;
             }
-            else if (matrix[midRow][0] > target)
-                d = midRow - 1;
+            else if(matrix[mid][0] < target)
+                t = mid + 1;
             else
-                t = midRow + 1;
+                d = mid - 1;
         }
-
         return false;
     }
 };

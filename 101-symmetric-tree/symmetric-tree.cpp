@@ -12,8 +12,6 @@
 class Solution {
 public:
     bool isSymmetric(TreeNode* root) {
-        if(root == NULL || root->left == NULL && root->right == NULL)
-            return true;
         return symmetric(root->left,root->right);
     }
     bool symmetric(TreeNode* left,TreeNode* right)

@@ -7,38 +7,30 @@ public:
             swap(a,b);            
         while(b.size() < a.size()) 
             b = "0" + b;
-        int carry = 0;
+        char carry = '0';
         string res = "";
-        for(int i = b.size()-1; i >= 0 ; --i)
+        for(int i = a.size()-1; i >= 0 ; --i)
         {             
-             if(b[i] == '1' && a[i]=='1')
-             {
-
-                if(carry == 0) 
-                    res = "0" + res;
-                else 
-                    res = "1" + res;
-                carry = 1;
-             }
-             else if(b[i] =='0' && a[i] =='0')
-             {
-                if(carry == 0) 
-                    res = "0" + res;
-                else
-                {
-                    res = "1" + res;
-                    carry = 0;
-                }
-             }
-             else if((b[i]=='0' && a[i]=='1') || (b[i]=='1' && a[i] == '0'))
-             {   
-                if(carry == 0) 
-                    res = "1" + res;        
-                else 
-                    res = "0" + res;                 
-             }        
+            if ((a[i] == '1' && b[i] == '0' || a[i] == '0' && b[i] == '1') && carry == '0')
+                res = '1' + res;
+            else if ((a[i] == '1' && b[i] == '0' || a[i] == '0' && b[i] == '1') && carry == '1')
+                res = '0' + res;
+            else if (a[i] == '1' && b[i] == '1' && carry == '1')
+                res = '1' + res;
+            else if (a[i] == '1' && b[i] == '1' && carry == '0') {
+                res = '0' + res;
+                carry = '1'; // Set carry to '1'
+            }
+            else if(a[i] == '0' && b[i] == '0' && carry == '1'){
+                res = '1' + res;
+                carry = '0'; // Set carry to '0'
+            }   
+            else{
+                res = '0' + res;
+                carry = '0'; // Set carry to '0'
+            }
         }        
-        if(carry == 1) 
+        if(carry == '1') 
             res = "1" + res;        
         return res;
     }

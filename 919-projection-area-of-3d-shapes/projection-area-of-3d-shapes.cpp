@@ -13,9 +13,8 @@ public:
         for (int i = 0; i < grid.size(); i++) {
             sum += findMax(grid[i]);
             vector<int> temp;
-            for (int j = 0; j < grid[0].size(); j++) {
+            for (int j = 0; j < grid[0].size(); j++) 
                 temp.push_back(grid[j][i]);
-            }
             sum += findMax(temp);
         }
         return sum;
@@ -26,9 +25,8 @@ public:
             return 0;
         int maxElement = arr[0];
         for (int i = 1; i < arr.size(); ++i) {
-            if (arr[i] > maxElement) {
+            if (arr[i] > maxElement) 
                 maxElement = arr[i];
-            }
         }
         return maxElement;
     }

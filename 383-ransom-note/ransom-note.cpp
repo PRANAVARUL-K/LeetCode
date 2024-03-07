@@ -6,7 +6,7 @@ public:
             um[magazine[i]]++;
         for(int i = 0;i < ransomNote.size(); i++)
         {
-            if(um.find(ransomNote[i]) != um.end() && um[ransomNote[i]] > 0)
+            if(um[ransomNote[i]] > 0)
                 um[ransomNote[i]]--;
             else
                 return false;

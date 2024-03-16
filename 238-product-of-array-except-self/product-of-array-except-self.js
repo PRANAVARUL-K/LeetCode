@@ -11,15 +11,14 @@ var productExceptSelf = function(nums) {
         return count;
     }
 }, 0);
-const totalProduct0 = nums.reduce((acc, num) => {
-    if(num != 0) 
-        return acc * num;
-        else 
-            return acc;
-        }, 1);
     return nums.map(num =>{ 
         if(num == 0 && countZeros == 1) 
-            return totalProduct0
+            return nums.reduce((acc, num) => {
+    if(num != 0) 
+        return acc * num;
+    else 
+        return acc;
+        }, 1);
         else if(countZeros > 1)
             return 0;
         else

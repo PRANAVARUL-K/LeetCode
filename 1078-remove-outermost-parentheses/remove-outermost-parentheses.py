@@ -12,8 +12,5 @@ class Solution:
             if(len(stack) == 0 and len(string) > 0):
                 primitive.append(string)
                 string = ''
-        string = ''
-        print(primitive)
-        for i in primitive:
-            string = string + i[1:-1]
-        return string
+        
+        return "".join(i[1:-1] for i in primitive)
